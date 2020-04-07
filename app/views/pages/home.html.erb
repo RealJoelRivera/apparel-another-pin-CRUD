@@ -1,9 +1,5 @@
 <h1>Homepage</h1>
 
-<% @featured_products.each do |product| %>
+<h2>Featured Pins</h2>
 
-  <p>
-    <%= link_to product_title, product_path(product) %>
-  </p>
-
-<% end %>
+<%= render partial: "products/product", collection: @featured_products %>
