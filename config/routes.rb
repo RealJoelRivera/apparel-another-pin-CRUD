@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get "info", to: "pages#info"
 
-  resources :products
+  resources :products do
+    resources :order_items
+  end
+
   root "pages#home"
 end
