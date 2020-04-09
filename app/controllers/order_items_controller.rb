@@ -15,6 +15,14 @@ class OrderItemsController < ApplicationController
     redirect_to product_path(@product)
   end
 
+  def destroy
+    @product = Product.find(params[:product_id])
+    @order_item = OrderItem.find(params[:id])
+    @order_item.delete
+    flash[:success] = "Product removed from cart"
+    redirect_to cart_path
+  end
+
   def form_params
     params.require(:order_item).permit(:quantity)
   end
